@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BCM)
 relay = 23
 GPIO.setup(relay,GPIO.OUT)
 
-app = Flask(light)
+app = Flask(__name__)
 
 status = False
 
@@ -19,15 +19,15 @@ def index():
 def action(akcja):
     global status
     if (akcja == "on"):
-        if (go==False):
+        if (status==False):
           status = True
           GPIO.output(relay, True) 
     if (akcja == "off"):
-        if (go==True):
+        if (status==True):
           status = False
           GPIO.output(relay, False)
     
     return render_template('index.html', status = status)
 
-if light == 'main':
+if __name__ == '__main__':
     app.run(debug=True, port=82, host='0.0.0.0')
