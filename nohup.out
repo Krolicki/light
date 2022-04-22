@@ -153,3 +153,23 @@
 192.168.55.10 - - [20/Apr/2022 22:27:07] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
 192.168.55.10 - - [20/Apr/2022 22:27:08] "[37mGET /on HTTP/1.1[0m" 200 -
 192.168.55.10 - - [20/Apr/2022 22:27:08] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+ * Serving Flask app "light" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:82/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 232-694-728
+192.168.55.10 - - [20/Apr/2022 22:47:49] "[37mGET /on HTTP/1.1[0m" 200 -
+192.168.55.10 - - [20/Apr/2022 22:47:49] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:00] "[37mGET /off HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:00] "[37mGET /static/styles/style.css HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:00] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:06] "[37mGET /on HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:06] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:10] "[37mGET /off HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:10] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:24] "[37mGET /off HTTP/1.1[0m" 200 -
+192.168.55.5 - - [20/Apr/2022 23:57:25] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -

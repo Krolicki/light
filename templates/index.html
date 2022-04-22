@@ -12,11 +12,19 @@
 		<h1>Światło jest <b>{% if status == 0 %} zgaszone {% else %} włączone {% endif %}</b></h1>
 		<h2>
 			{%if status == 0 %}
-               <a href="/on" class="turnOn" role="button">Włącz światło</a>
-            {% else %}
-               <a href="/off" class="turnOff" role="button">Zgaś światło</a>
-            {% endif %}
+			<a href="/on" class="turnOn" role="button">Włącz światło</a>
+			{% else %}
+			<a href="/off" class="turnOff" role="button">Zgaś światło</a>
+			{% endif %}
 		</h2>
 	</div>
+	
+	<script>
+		window.onload = function(){ 
+			{% if not (czas == None ) %} 
+				setTimeout(() => { window.location.replace('/');}, {{ czas }} * 1000);
+			{% endif %}
+		}
+	</script>
 </body>
 </html>
