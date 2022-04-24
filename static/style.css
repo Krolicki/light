@@ -1,0 +1,117 @@
+body, html, *{
+	font-family: Segoe UI, Arial, sans-serif;
+}
+
+@media only screen and (max-width: 850px){
+	.container { 
+		justify-content: center;
+		margin-top: -30px;
+		font-size: 12vmin; 
+	}
+	.container a{
+		padding: 24px 40px;
+		font-size: 4.5vmin;
+	}
+	.container h1 { 
+		font-size: 12vmin; 
+	}
+}
+
+.container { 
+	width: 100%; 
+	height: 100vh;
+	display : flex; 
+	flex-direction: column; 
+	align-items: center; 
+}
+.container h1 { 
+	font-size: 7vmin; 
+	font-weight: 200;
+}
+.container a{ 
+	padding: 16px 32px; 
+	font-size: 3.5vmin; 
+	margin-top : 10px; 
+	text-decoration: none; 
+	color: white ; 
+	border-radius: 5px;
+}
+.turnOn { 
+	background : #36a832; 
+}
+.turnOff { 
+	background : #a83232; 
+}
+.container #showTimer{
+	margin: 10px;
+	padding: 5px;
+	background: #5c5c5c;
+	font-size: 2.5vmin;
+	color: white;
+	border: none;
+	border-radius: 5px;
+}
+.timerPanel{
+	transition: all 1.5s ease;
+	opacity: 1;
+}
+.timerInput{
+	display: flex;
+	margin-top: 10px;
+	align-items: center;
+
+}
+.timerInput #dec, .timerInput #inc{
+	width: 60px;
+	height: 60px;
+	margin: 0px 15px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 50%;
+	font-size: 3.5vmin;
+	
+}
+.timerInput input{
+	width: 80px;
+	height: 60px;
+	font-size: 3.5vmin;
+	text-align: center;
+	border-radius: 10px;
+	outline:none;
+	background: white;
+	border: 1px solid black;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+	-webkit-appearance: none;
+}
+.timerButtons{
+	margin-top: 15px;
+	text-align: center;
+}
+.timerButtons button{
+	padding: 16px 32px; 
+	font-size: 2.5vmin; 
+	margin-top : 10px; 
+	text-decoration: none; 
+	color: black ; 
+	border-radius: 5px;
+	background: white;
+	border: 1px solid black;
+	transition: background-color 0.5s ease;
+}
+.timerButtons p{
+	font-size: 3.5vmin;
+	margin: 10px auto;
+	
+}
+
+.clicked{
+	background: #36c5ff !important;
+}
+
+.showTmr{
+	margin-top: 0px;
+	opacity: 1;
+}

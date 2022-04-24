@@ -5,20 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontrola światła</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
 </head>
 <body>
 	<div class="container">
 		<h1>Światło jest <b>{% if status == 0 %} zgaszone {% else %} włączone {% endif %}</b></h1>
-		<h2>
-			{%if status == 0 %}
-			<a href="/on" class="turnOn" role="button">Włącz światło</a>
-			{% else %}
-			<a href="/off" class="turnOff" role="button">Zgaś światło</a>
-			{% endif %}
-		</h2>
+		{%if status == 0 %}
+		<a href="/on" class="turnOn" role="button">Włącz światło</a>
+		{% else %}
+		<a href="/off" class="turnOff" role="button">Zgaś światło</a>
+		{% endif %}
+		<button id="showTimer">Włączanie czasowe</button>
+		<div class="timerPanel">
+			<div class="timerButtons">
+				<button id="timerToOn">Włącz</button>
+				<button id="timerToOff">Wyłącz</button>
+		
+				<p>po:</p>
+			</div>
+			<div class="timerInput">
+				<button id="dec">-</button>
+				<input type="number" min="1" max="60" value="1" id="timeValue">
+				<button id="inc">+</button>
+			</div>
+		</div>
+
 	</div>
-	
 	<script>
 		window.onload = function(){ 
 			{% if not (czas == None ) %} 
@@ -26,5 +38,6 @@
 			{% endif %}
 		}
 	</script>
+	<script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>
