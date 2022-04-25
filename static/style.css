@@ -1,5 +1,10 @@
 body, html, *{
-	font-family: Segoe UI, Arial, sans-serif;
+	font-family: Segoe UI, Arial, sans-serif !important;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+}
+button:focus, input:focus{
+	outline: none !important;
 }
 
 @media only screen and (max-width: 850px){
@@ -37,10 +42,10 @@ body, html, *{
 	border-radius: 5px;
 }
 .turnOn { 
-	background : #36a832; 
+	background : #36a832 !important; 
 }
 .turnOff { 
-	background : #a83232; 
+	background : #a83232 !important; 
 }
 .container #showTimer{
 	margin: 10px;
@@ -52,26 +57,18 @@ body, html, *{
 	border-radius: 5px;
 }
 .timerPanel{
-	transition: all 1.5s ease;
-	opacity: 1;
+	transition: all 1s ease;
+	opacity: 0;
+	pointer-events: none;
 }
 .timerInput{
 	display: flex;
 	margin-top: 10px;
-	align-items: center;
+	flex-direction: column;
+  align-items: center;
 
 }
-.timerInput #dec, .timerInput #inc{
-	width: 60px;
-	height: 60px;
-	margin: 0px 15px;
-	background: white;
-	border: 1px solid black;
-	border-radius: 50%;
-	font-size: 3.5vmin;
-	
-}
-.timerInput input{
+.timerInput #timeValue{
 	width: 80px;
 	height: 60px;
 	font-size: 3.5vmin;
@@ -81,6 +78,12 @@ body, html, *{
 	background: white;
 	border: 1px solid black;
 
+}
+.timerInput #timeSlider{
+  -webkit-appearance: none; 
+  appearance: none;
+	margin-top: 25px;
+	width: 250px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
@@ -93,12 +96,11 @@ input::-webkit-inner-spin-button{
 .timerButtons button{
 	padding: 16px 32px; 
 	font-size: 2.5vmin; 
-	margin-top : 10px; 
 	text-decoration: none; 
-	color: black ; 
+	color: white ; 
 	border-radius: 5px;
-	background: white;
-	border: 1px solid black;
+	background: grey;
+	border: none;
 	transition: background-color 0.5s ease;
 }
 .timerButtons p{
@@ -106,12 +108,24 @@ input::-webkit-inner-spin-button{
 	margin: 10px auto;
 	
 }
-
 .clicked{
 	background: #36c5ff !important;
 }
 
 .showTmr{
-	margin-top: 0px;
+	pointer-events: auto;
 	opacity: 1;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px; 
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px; 
+    width: 20px; 
+    border-radius: 50%;
+    background-color: #009c1a;
 }
