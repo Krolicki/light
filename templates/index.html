@@ -17,22 +17,33 @@
 		{% endif %}
 		<button id="showTimer">Wywołanie czasowe</button>
 		<div class="timerPanel">
-			<div class="timerButtons">
-				<button id="timerToOn">Włącz</button>
-				<button id="timerToOff">Wyłącz</button>
-				<p>po:</p>
-			</div>
-			<div class="timerInput">
-				<input type="number" min="1" max="60" value="1" id="timeValue">
-				<input type="range" id="timeSlider" class="slider" value="1" min="1" max="30">
-			</div>
-			<div class="timerButtons">
-				<button id="timerToSec">Sekund</button>
-				<button id="timerToMin">Minut </button>
-			</div>
-			<div class="timerButtons">
-				<button>Ustaw wywołanie</button>
-			</div>
+			
+			<form action="/timer" method="GET">
+				<div class="timerButtons">
+					<button type="button" id="timerToOn">Włącz</button>
+					<button type="button" id="timerToOff">Wyłącz</button>
+					<div class="hiddenDiv">
+						<input type="text" name="action" id="actionInput" class="hiddenInput" required>
+					</div>
+					<p>po:</p>
+				</div>
+				<div class="timerInput">
+					<input type="number" name="time" min="1" max="60" value="1" id="timeValue">
+					<input type="range" id="timeSlider" class="slider" value="1" min="1" max="30">
+				</div>
+				<div class="timerButtons">
+					
+					<button type="button" id="timerToSec">Sekund</button>
+					<button type="button" id="timerToMin">Minut </button>
+				</div>
+				<div class="hiddenDiv">
+				<input type="text" name="type" id="typeInput" class="hiddenInput" required>
+				</div>
+				<div class="timerButtons" id="div2">
+					<button type="submit">Ustaw wywołanie</button>
+				</div>
+				
+			</form>
 		</div>
 
 	</div>

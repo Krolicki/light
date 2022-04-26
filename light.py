@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import time
 import threading
 
@@ -48,14 +48,19 @@ def action(akcja):
     
     return render_template('index.html', status = status, czas = None)
 
-@app.route("/timer/<czas>/<akcja>")
-def test(czas, akcja):
+@app.route("/timer")
+def test():
     global status
     global timerStatus
+    get_czas = int(request.args.get('time'))
+    get_akcja = request.args.get('action')
+    get_type = request.args.get('type')
+    if(get_type == "min"):
+        get_czas = get_czas*60
     if not (timerStatus):
-        x = threading.Thread(target=timerSet, args=(int(czas),), kwargs={'act': akcja})
+        x = threading.Thread(target=timerSet, args=(get_czas,), kwargs={'act': get_akcja})
         x.start()
-    return render_template('index.html', status = status, czas = int(czas))
+    return render_template('index.html', status = status, czas = int(get_czas))
 
 if __name__ == '__main__':
     app.run(debug=True, port=82, host='0.0.0.0')
