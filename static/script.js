@@ -1,5 +1,3 @@
-//const decBtn = document.querySelector("#dec");
-//const incBtn = document.querySelector("#inc");
 const timeVal = document.querySelector("#timeValue");
 const timerToOn = document.querySelector("#timerToOn");
 const timerToOff = document.querySelector("#timerToOff");
@@ -11,15 +9,10 @@ const secBtn = document.querySelector("#TimerToSec");
 const actionInp = document.querySelector("#actionInput");
 const typeInp = document.querySelector("#typeInput");
 		
-/*
-decBtn.addEventListener("click", function(){
-	if(timeVal.value>1)
-		timeVal.value--;
-});
-incBtn.addEventListener("click", function(){
-	if(timeVal.value<60)
-				timeVal.value++;
-});*/
+window.onload = function(){ 
+	timerPanel.classList.add("showTmrTr");
+}
+		
 timeVal.addEventListener("change", function(){
 	if(timeVal.value>60)
 		timeVal.value = 60;

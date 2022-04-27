@@ -63,7 +63,6 @@ button:focus, input:focus{
 .timerPanel{
 	opacity: 0;
 	pointer-events: none;
-	transition: all 0.5s ease;
 }
 .timerInput{
 	display: flex;
@@ -118,9 +117,11 @@ input::-webkit-inner-spin-button{
 }
 
 .showTmr{
-	transition: all 1s ease;
 	pointer-events: auto;
 	opacity: 1;
+}
+.showTmrTr{
+	transition: all 0.5s ease;
 }
 input[type="range"]::-webkit-slider-runnable-track {
     background: rgba(0,0,0,0.3);
