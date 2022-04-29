@@ -45,11 +45,11 @@
 		</div>
 	</div>
 	<script>
-		window.onload = function(){ 
-			{% if not (czas == None ) %} 
-				setTimeout(() => { window.location.replace('/');}, {{ czas }} * 1000);
-			{% endif %}
-		}
+		{% if not (czas == None ) %} 
+			var czas = {{czas}};
+		{% else %}
+			var czas = null;
+		{% endif %}
 	</script>
 	<script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
