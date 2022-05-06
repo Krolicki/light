@@ -21,6 +21,10 @@ button:focus, input:focus{
 	.container h1 { 
 		font-size: 7vmin !important;; 
 	}
+	.container p{
+		margin: 0px !important;
+		padding: 0px !important;
+	}
 	.timerButtons button{
 		font-size: 4vmin !important; 
 	}
@@ -36,6 +40,8 @@ button:focus, input:focus{
 .container h1 { 
 	font-size: 7vmin; 
 	font-weight: 200;
+	line-height: 12vmin;
+	margin: 0px;
 }
 .container a{ 
 	padding: 16px 32px; 
@@ -44,6 +50,11 @@ button:focus, input:focus{
 	text-decoration: none; 
 	color: white ; 
 	border-radius: 5px;
+}
+.container p{
+	font-size: 3.5vmin; 
+	padding: 0px;
+	margin: 0px;
 }
 .turnOn { 
 	background : #36a832 !important; 

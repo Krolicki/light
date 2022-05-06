@@ -16,6 +16,7 @@
 		<a href="/off" class="turnOff" role="button">Zgaś światło</a>
 		{% endif %}
 		<button id="showTimer">Wywołanie czasowe</button>
+		<p id="timeToRefresh">Czas</p>
 		<div class="timerPanel">
 			<form action="/timer" method="GET">
 				<div class="timerButtons">
@@ -47,6 +48,17 @@
 	<script>
 		{% if not (czas == None ) %} 
 			var czas = {{czas}};
+			var timeToSwitch = new Date({{timeToSwitch}});
+			let now = new Date();
+			let timeLeft = (timeToSwitch.getTime() - now.getTime()) / 1000;
+			console.log(timeToSwitch);
+			console.log(now);
+			console.log(timeLeft);
+			setInterval(function() {
+				document.getElementById("timeToRefresh").innerHTML = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000);
+				now = new Date();
+			}, 1000);
+
 		{% else %}
 			var czas = null;
 		{% endif %}

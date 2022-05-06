@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 from flask import Flask, render_template, request
 import time
 import threading
+from datetime import datetime, timedelta
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -12,10 +13,16 @@ app = Flask(__name__)
 
 status = False
 timerStatus = False
+timeToSwitch = "NULL"
 
 def timerSet(duration, act):
     global timerStatus
     timerStatus = True
+    timeToAdd = timedelta(seconds=duration)
+    global timeToSwitch
+    timeToSwitch =  datetime.now() + timeToAdd
+    timeToSwitch = int(time.mktime(timeToSwitch.timetuple())) * 1000
+    print(timeToSwitch)
     time.sleep(duration)
     global status
     if(act == "on"):
@@ -60,7 +67,7 @@ def test():
     if not (timerStatus):
         x = threading.Thread(target=timerSet, args=(get_czas,), kwargs={'act': get_akcja})
         x.start()
-    return render_template('index.html', status = status, czas = int(get_czas))
+    return render_template('index.html', status = status, czas = int(get_czas), timeToSwitch = timeToSwitch)
 
 if __name__ == '__main__':
     app.run(debug=True, port=82, host='0.0.0.0')
