@@ -47,19 +47,18 @@
 	</div>
 	<script>
 		{% if not (czas == None ) %} 
+			document.getElementById("timeToRefresh").classList.remove("hide");
 			var czas = {{czas}};
 			var timeToSwitch = new Date({{timeToSwitch}});
 			let now = new Date();
 			let timeLeft = (timeToSwitch.getTime() - now.getTime()) / 1000;
-			console.log(timeToSwitch);
-			console.log(now);
-			console.log(timeLeft);
 			setInterval(function() {
-				document.getElementById("timeToRefresh").innerHTML = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000);
+				document.getElementById("timeToRefresh").innerHTML = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000) -1;
 				now = new Date();
 			}, 1000);
 
 		{% else %}
+			document.getElementById("timeToRefresh").classList.add("hide");
 			var czas = null;
 		{% endif %}
 	</script>
