@@ -16,7 +16,11 @@
 		<a href="/off" class="turnOff" role="button">Zgaś światło</a>
 		{% endif %}
 		<button id="showTimer">Wywołanie czasowe</button>
-		<p id="timeToRefresh">Czas</p>
+		<div id="timeRefreshPanel">
+			<br>
+			<p>Czas do wywołania:</p>
+			<p id="timeToRefresh"></p>
+		</div>
 		<div class="timerPanel">
 			<form action="/timer" method="GET">
 				<div class="timerButtons">
@@ -47,18 +51,24 @@
 	</div>
 	<script>
 		{% if not (czas == None ) %} 
-			document.getElementById("timeToRefresh").classList.remove("hide");
+			document.getElementById("timeRefreshPanel").classList.remove("hide");
+			document.getElementById("showTimer").classList.add("hide");
 			var czas = {{czas}};
 			var timeToSwitch = new Date({{timeToSwitch}});
 			let now = new Date();
-			let timeLeft = (timeToSwitch.getTime() - now.getTime()) / 1000;
+			let timeLeft = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000) ;
+			document.getElementById("timeToRefresh").innerHTML = timeLeft;
 			setInterval(function() {
-				document.getElementById("timeToRefresh").innerHTML = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000) -1;
-				now = new Date();
+				if(timeLeft > 0){
+					document.getElementById("timeToRefresh").innerHTML = timeLeft -1;
+					now = new Date();
+					timeLeft = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000);
+				}
 			}, 1000);
 
 		{% else %}
-			document.getElementById("timeToRefresh").classList.add("hide");
+			document.getElementById("timeRefreshPanel").classList.add("hide");
+			document.getElementById("showTimer").classList.remove("hide");
 			var czas = null;
 		{% endif %}
 	</script>
