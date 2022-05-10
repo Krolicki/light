@@ -50,13 +50,12 @@
 		</div>
 	</div>
 	<script>
-		{% if not (czas == None ) %} 
+		{% if not timeToSwitch is none %} 
 			document.getElementById("timeRefreshPanel").classList.remove("hide");
 			document.getElementById("showTimer").classList.add("hide");
-			var czas = {{czas}};
 			var timeToSwitch = new Date({{timeToSwitch}});
 			let now = new Date();
-			let timeLeft = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000) ;
+			var timeLeft = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000) ;
 			document.getElementById("timeToRefresh").innerHTML = timeLeft;
 			setInterval(function() {
 				if(timeLeft > 0){
@@ -69,7 +68,7 @@
 		{% else %}
 			document.getElementById("timeRefreshPanel").classList.add("hide");
 			document.getElementById("showTimer").classList.remove("hide");
-			var czas = null;
+			var timeLeft = null;
 		{% endif %}
 	</script>
 	<script src="{{url_for('static', filename='script.js')}}"></script>

@@ -11,8 +11,8 @@ const typeInp = document.querySelector("#typeInput");
 		
 window.onload = function(){ 
 	timerPanel.classList.add("showTmrTr");
-	if(czas != null){
-			setTimeout(() => { window.location.replace('/');}, czas * 1000);
+	if(timeLeft != null){
+			setTimeout(() => { window.location.replace('/');}, timeLeft * 1000);
 	}
 }
 		

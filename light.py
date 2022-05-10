@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 status = False
 timerStatus = False
-timeToSwitch = "NULL"
+timeToSwitch = None
 
 def timerSet(duration, act):
     global timerStatus
@@ -33,17 +33,21 @@ def timerSet(duration, act):
         if(GPIO.input(relay)):
             status = False
             GPIO.output(relay, False) 
+    timeToSwitch = None
     timerStatus = False
 
 
 @app.route('/')
 def index():
     global status
-    return render_template('index.html', status = status, czas = None)
+    global timeToSwitch
+    return render_template('index.html', status = status, timeToSwitch = timeToSwitch)
 
 @app.route("/<akcja>")
 def action(akcja):
     global status
+    global timerStatus
+    global timeToSwitch
     if (akcja == "on"):
         if (status==False):
           status = True
@@ -52,8 +56,7 @@ def action(akcja):
         if (status==True):
           status = False
           GPIO.output(relay, False)
-    
-    return render_template('index.html', status = status, czas = None)
+    return render_template('index.html', status = status, timeToSwitch = timeToSwitch)
 
 @app.route("/timer")
 def test():
@@ -67,7 +70,8 @@ def test():
     if not (timerStatus):
         x = threading.Thread(target=timerSet, args=(get_czas,), kwargs={'act': get_akcja})
         x.start()
-    return render_template('index.html', status = status, czas = int(get_czas), timeToSwitch = timeToSwitch)
+    global timeToSwitch
+    return render_template('index.html', status = status, timeToSwitch = timeToSwitch)
 
 if __name__ == '__main__':
     app.run(debug=True, port=82, host='0.0.0.0')
