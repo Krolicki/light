@@ -19,9 +19,12 @@
 		<div id="timeRefreshPanel">
 			<br>
 			<p id="timerText">Czas do wywołania:</p>
-			<p id="timeToRefresh"></p>
+			<b><p id="timeToRefresh"></p></b>
+			<br>
+			<a role="button" id="cancel" href="/cancel">Przerwij</a>
+			<p id="stopping"></p>
 		</div>
-		<div class="timerPanel">
+		<div class="timerPanel showTmr">
 			<form action="/timer" method="GET">
 				<div class="timerButtons">
 					<button type="button" id="timerToOn">Włącz</button>

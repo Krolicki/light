@@ -8,6 +8,7 @@ const minBtn = document.querySelector("#timerToMin");
 const secBtn = document.querySelector("#TimerToSec");
 const actionInp = document.querySelector("#actionInput");
 const typeInp = document.querySelector("#typeInput");
+const cancel = document.querySelector("#cancel");
 		
 window.onload = function(){ 
 	timerPanel.classList.add("showTmrTr");
@@ -49,4 +50,7 @@ timerToMin.addEventListener("click", function(){
 	timerToSec.classList.remove("clicked");
 	timerToMin.classList.add("clicked");
 	typeInp.value = "min";
+})
+cancel.addEventListener("click", function(){
+	document.getElementById("stopping").innerHTML = "Zatrzymywanie";
 })

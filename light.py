@@ -22,8 +22,12 @@ def timerSet(duration, act):
     global timeToSwitch
     timeToSwitch =  datetime.now() + timeToAdd
     timeToSwitch = int(time.mktime(timeToSwitch.timetuple())) * 1000
-    print(timeToSwitch)
-    time.sleep(duration)
+    for i in range(duration):
+        if timerStatus == False: 
+            timeToSwitch = None
+            return
+        time.sleep(1)
+    #time.sleep(duration)
     global status
     if(act == "on"):
         if not (GPIO.input(relay)):
@@ -56,6 +60,10 @@ def action(akcja):
         if (status==True):
           status = False
           GPIO.output(relay, False)
+    if (akcja == "cancel"):
+        if (timerStatus == True):
+            timerStatus = False
+            time.sleep(1)
     return render_template('index.html', status = status, timeToSwitch = timeToSwitch)
 
 @app.route("/timer")

@@ -2,7 +2,9 @@ body, html, *{
 	font-family: Segoe UI, Arial, sans-serif !important;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
   -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+
   overflow: hidden;
+ 
 }
 button:focus, input:focus{
 	outline: none !important;
@@ -36,6 +38,7 @@ button:focus, input:focus{
 	display : flex; 
 	flex-direction: column; 
 	align-items: center; 
+
 }
 .container h1 { 
 	font-size: 7vmin; 
@@ -72,8 +75,9 @@ button:focus, input:focus{
 	border-radius: 5px;
 }
 .timerPanel{
-	opacity: 0;
-	pointer-events: none;
+	max-height: 60%;
+	opacity: 1;
+	pointer-events: auto;
 }
 .timerInput{
 	display: flex;
@@ -108,7 +112,7 @@ input::-webkit-inner-spin-button{
 	text-align: center;
 }
 
-.timerButtons button{
+.timerButtons button, #cancel{
 	padding: 16px 32px; 
 	font-size: 2.5vmin; 
 	text-decoration: none; 
@@ -128,11 +132,12 @@ input::-webkit-inner-spin-button{
 }
 
 .showTmr{
-	pointer-events: auto;
-	opacity: 1;
+	height: 0px;
+	pointer-events: none;
+	opacity: 0;
 }
 .showTmrTr{
-	transition: all 0.5s ease;
+	transition: opacity 0.5s ease;
 }
 input[type="range"]::-webkit-slider-runnable-track {
     background: rgba(0,0,0,0.3);
@@ -169,4 +174,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 #timeRefreshPanel{
 	text-align: center;
+	height: 50%;
+}
+#stopping{
+	margin-top: 20px;
 }
