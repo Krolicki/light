@@ -12,9 +12,8 @@ button:focus, input:focus{
 
 @media only screen and (max-width: 850px){
 	.container { 
-		justify-content: center;
-		margin-top: -30px;
-		font-size: 12vmin; 
+		margin-top: 2vmin;
+		font-size: 12vmin !important; 
 	}
 	.container a{
 		padding: 24px 40px;
@@ -29,6 +28,13 @@ button:focus, input:focus{
 	}
 	.timerButtons button{
 		font-size: 4vmin !important; 
+	}
+	#timeToRefresh{
+		font-size: 10vmin !important;
+	}
+	#stopping{
+		font-size: 6vmin !important;
+		margin-top: 6vmin !important;
 	}
 }
 
