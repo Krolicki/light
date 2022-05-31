@@ -36,6 +36,17 @@ button:focus, input:focus{
 		font-size: 6vmin !important;
 		margin-top: 6vmin !important;
 	}
+	#timeRefreshPanel p, #timeRefreshPanel br{
+		margin: 0px !important;
+		padding: 0px !important;
+	
+	}
+	#timeRefreshPanel{
+		line-height:8vmin;
+	}
+	#stopping{
+		transform: translate(0, 8vmin);
+	}
 }
 
 .container { 
