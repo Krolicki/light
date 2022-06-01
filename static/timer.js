@@ -8,12 +8,12 @@ if(timeToSwitch != null){
 	document.getElementById("timeRefreshPanel").classList.remove("hide");
 	document.getElementById("showTimer").classList.add("hide");
 	if(timeLeft >= 0){
-			timeToRefresh.innerHTML = timeLeft;
+			timeToRefresh.innerHTML = new Date(timeLeft * 1000).toISOString().substring(14, 19);
 			setInterval(function() {
 				if(timeLeft > 0){
 					now = new Date();
 					timeLeft = parseInt((timeToSwitch.getTime() - now.getTime()) / 1000);
-					timeToRefresh.innerHTML = timeLeft;
+					timeToRefresh.innerHTML = new Date(timeLeft * 1000).toISOString().substring(14, 19);
 					if(timeLeft == 5){
 						timeToRefresh.style.color="red";
 					}
